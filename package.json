@@ -1,0 +1,38 @@
+{
+  "name": "int-angular-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf lib/*",
+    "prune": "npm prune",
+    "build": "npm run prune && npm install && npm run lint && npm run clean && tsc && npm run release-patch",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "release-patch": "npm version patch --force && node lib/scripts/update.package.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibmdev/int-angular-scripts.git"
+  },
+  "author": "KZO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibmdev/int-angular-scripts/issues"
+  },
+  "homepage": "https://github.com/ibmdev/int-angular-scripts#readme",
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "typescript": "3.2.2",
+    "prettier": "1.18.2",
+    "rimraf": "2.6.3",
+    "tslint": "5.17.0",
+    "tslint-config-prettier": "1.18.0",
+    "jest": "24.8.0",
+    "ts-jest": "24.0.2",
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.7"
+  }
+}
