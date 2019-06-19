@@ -6,10 +6,10 @@
   "scripts": {
     "clean": "rimraf lib/*",
     "prune": "npm prune",
-    "build": "npm run prune && npm install && npm run lint && npm run format && npm run clean && tsc && npm run release-patch",
+    "build": "npm run prune && npm install && npm run lint && npm run format && npm run clean && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "release-patch": "node lib/scripts/update.package.js"
+    "release": "npm run build && node lib/scripts/update.package.js"
   },
   "repository": {
     "type": "git",
