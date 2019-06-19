@@ -1,15 +1,15 @@
 {
   "name": "int-angular-scripts",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf lib/*",
     "prune": "npm prune",
-    "build": "npm run prune && npm install && npm run lint && npm run clean && tsc",
+    "build": "npm run prune && npm install && npm run lint && npm run format && npm run clean && tsc && npm run release-patch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "build-release": "npm run build && node lib/scripts/update.package.js"
+    "release-patch": "npm version patch --force && node lib/scripts/update.package.js"
   },
   "repository": {
     "type": "git",

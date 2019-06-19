@@ -1,6 +1,5 @@
 import { getFiles, renameFile } from '../manager/filesystem.manager';
 import { commit, getBranch, getRevision, push, stage, unstage } from '../manager/git.manager';
-import { attente } from '../manager/timer.manager';
 
 async function main() {
   const branch = (await getBranch()).stdout.toString().trim();
@@ -12,7 +11,6 @@ async function main() {
   });
   await unstage();
   await stage('src/assets/i18n/**/*.json');
-  await attente(5000);
   await commit('Release i18n', '');
   await push(branch);
   console.log(`Commit et push sur la branche : '${branch}'`);
